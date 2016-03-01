@@ -1,0 +1,62 @@
+BDD PROJECT DIRECTORY SETP
+
+- mkdir leap-year
+- git init
+- touch readme.md
+- atom .
+- mkdir js css
+- mkdir spec
+- Go to github.com/mochajs/mocha
+- download mocha.css into spec folder
+- download mocha.js into spec folder
+- go to github.com/chaijs/chai
+- download chai.js
+- add file spec-runner.html to spec folder
+- copy code from lesson text (below)
+
+
+
+<html>
+<head>
+  <title>Mocha spec runner</title>
+  <link rel="stylesheet" href="mocha.css">
+</head>
+<body>
+  <div id="mocha"></div>
+  <script src="../js/jquery-1.12.0.js"></script>
+  <script src="../js/scripts.js"></script>
+  <script src="mocha.js"></script>
+  <script src="chai.js"></script>
+  <script>mocha.setup('bdd');</script>
+  <script src="specs.js"></script>
+  <script>
+    expect = chai.expect;
+    mocha.checkLeaks();
+    mocha.globals(['jQuery']);
+    mocha.run();
+  </script>
+</body>
+</html>
+
+----------------------------------------------------------
+****Project folder
+Let's create a project directory called leap-year and initialize our git repository to track our changes. We'll add our README with details about our project. We'll add the folders js and css for our JavaScript and CSS files. We will also add a folder called spec which will store all of the testing files that we will need for our test files.
+
+****Mocha and Chai downloads
+We will be using two testing tools for our JavaScript applications: Mocha, a JavaScript test framework and Chai, a JavaScript assertion library. Mocha provides the environment where we will execute our tests and see the results. Chai provides the assertion code we will be using to write our tests; for example, as we will see "expect(leapYear(1993).to.equal(false)"). Both of these are open source programs available on GitHub.
+
+To add Mocha to our project, we go to the GitHub repository for mochajs. Locate the mocha.css and mocha.js files on the site. When you click on the file, select the Raw button on the upper right to see an unformatted copy of the file. Save the raw version of each into the spec folder.
+
+We'll do the same with Chai by saving the chai.js file to our spec folder from the chaijs GitHub repository.
+
+****Running specs
+The last file to add to our spec folder is spec-runner.html. The code below can be copied into the file. (Note: make sure the jQuery version matches the one you are using.)
+
+Let's walk through the lines of the head and body of this HTML file. When we open spec-runner.html in our browser, it will load the Mocha stylesheet, jQuery and the JavaScript leap year code that we will be writing in a file called scripts.js. It will load the mocha and chai files we added to our spec folder. It will then setup our Mocha test environment for "bdd" and load our BDD specs which we'll write in a specs.js file. Finally, in the last script tag, a few more setups are completed and finally it will run our specs (mocha.run).
+
+When the page spec-runner.html is rendered in the browser, the results from our specs being run will be displayed - red for fails and greens for passes. We'll see those details in the next lessons.
+
+With all of our initial folders and files in place, this is a great place to make a commit marking the starting point for this project (and a template for any JavaScript project we write this week).
+
+
+
